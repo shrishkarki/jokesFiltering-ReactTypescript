@@ -1,0 +1,120 @@
+tr th{
+    padding: 22px 0.75rem;
+}
+
+tr td {
+    padding: 18px 0.75rem;
+   
+}
+tr td:hover{
+    cursor: pointer;
+    background: transparent;
+}
+
+.input-with-icon {
+    position: relative;
+  }
+  
+  
+  
+  .input-with-icon .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 6px;
+    /* right: 10px; */
+    transform: translateY(-50%);
+    color: #666; 
+    pointer-events: none;
+  }
+
+
+  .dropdown::before{
+    content: "";
+    position: absolute;
+    width: 25px; 
+    height: 25px; 
+    border-color: #46a8cc;
+  right:53.5%;
+    transform: rotate(45deg);
+    transform: translate(50%,-52%) rotate(45deg);
+    z-index: 10;
+    
+    border-left-width: 1px;
+    border-top-width: 1px;
+    z-index: 100;
+    background-color: #315d6e;
+   
+   
+  
+   
+   
+  }
+  input[type="checkbox"] {
+    /* position: absolute;
+    opacity: 0; */
+    height: 0;
+    width: 0;
+  }
+  label{
+    position: relative;
+    padding-left: 25px; 
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+
+
+ label:after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    /* display: inline-block; */
+    height: 5px;
+    width: 10px;
+    top: 6px;
+   
+  
+    border-left-width: 2px;
+    border-bottom-width: 2px;
+
+    transform: rotate(-45deg);
+    display: none;
+   
+   
+ }
+ label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px; 
+    height: 18px; 
+   border-radius: 2px;
+  
+   border: 2.5px solid #f58657;
+    }
+    
+  input[type="checkbox"]:checked + label::before {
+    background-color: #f58657;
+    
+  }
+  input[type="checkbox"]:checked + label::after{
+    display: block;
+  }
+ 
+
+  ::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+  
+  /* Style the thumb */
+  ::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px;
+  }
+  
+  /* Style the thumb when hovering */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+  
