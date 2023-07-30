@@ -28,5 +28,14 @@ export interface Istate {
   errorMsg: string;
 }
 
+export interface Itoggle{
+  [filterName:string]:boolean,
+  
+}
+
+export interface Icategorysearch{
+  [categorySearch:string]:string
+}
+
 
 
