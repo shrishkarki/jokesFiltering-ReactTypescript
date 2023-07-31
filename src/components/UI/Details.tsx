@@ -115,7 +115,7 @@ const Details: React.FC = () => {
 
           <div className='ml-5 bg-[#264653]  px-3 cursor-pointer rounded-md flex items-center focus:ring-blue-700 border border-[#33738c]' onClick={handleToggle}>
             {/* <LuListPlus className='text-xl text-white tooltip-trigger' /> */}
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><path fill="#3596BB" d="M6 3.333a.667.667 0 1 0 0 1.334.667.667 0 0 0 0-1.333Zm-1.887 0a2 2 0 0 1 3.774 0h4.78a.667.667 0 0 1 0 1.334h-4.78a2 2 0 0 1-3.774 0h-.78a.667.667 0 1 1 0-1.333h.78Zm5.887 4a.667.667 0 1 0 0 1.334.667.667 0 0 0 0-1.333Zm-1.887 0a2 2 0 0 1 3.774 0h.78a.667.667 0 0 1 0 1.334h-.78a2.001 2.001 0 0 1-3.774 0h-4.78a.667.667 0 1 1 0-1.333h4.78Zm-2.113 4a.666.666 0 1 0 0 1.333.666.666 0 0 0 0-1.332Zm-1.887 0a2 2 0 0 1 3.774 0h4.78a.667.667 0 1 1 0 1.334h-4.78a2 2 0 0 1-3.774 0h-.78a.667.667 0 1 1 0-1.333h.78Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><path fill="#ffffff" d="M6 3.333a.667.667 0 1 0 0 1.334.667.667 0 0 0 0-1.333Zm-1.887 0a2 2 0 0 1 3.774 0h4.78a.667.667 0 0 1 0 1.334h-4.78a2 2 0 0 1-3.774 0h-.78a.667.667 0 1 1 0-1.333h.78Zm5.887 4a.667.667 0 1 0 0 1.334.667.667 0 0 0 0-1.333Zm-1.887 0a2 2 0 0 1 3.774 0h.78a.667.667 0 0 1 0 1.334h-.78a2.001 2.001 0 0 1-3.774 0h-4.78a.667.667 0 1 1 0-1.333h4.78Zm-2.113 4a.666.666 0 1 0 0 1.333.666.666 0 0 0 0-1.332Zm-1.887 0a2 2 0 0 1 3.774 0h4.78a.667.667 0 1 1 0 1.334h-4.78a2 2 0 0 1-3.774 0h-.78a.667.667 0 1 1 0-1.333h.78Z"/></svg>
           </div>
         </div>
 
@@ -142,35 +142,32 @@ const Details: React.FC = () => {
                   currentItems.map((eachItem,index) => {
                    
 
-                    return eachItem.type === 'single' ?
+                    return (
                       <tr key={eachItem.id} className='border-b-[1px]  border-b-[#33738c]  text-[0.975rem] leading-[1.25rem] hover:bg-[#315d6e]' onClick={() => toggleAccordion(eachItem.id)}>
-                        <td ><div >{index+1}</div></td>
-                        {eachItem.id === isOpen.jokeId && isOpen.status ?
-                          <td><div className='tracking-wider max-h-[100px] transition-[max-height] duration-200 ease-in-out'>{eachItem.joke}</div></td> :
-                          <td><div className='tracking-wider max-h-[20px]'>{extractFirstWords(eachItem.joke || " ")}.....</div></td>
-                        }
+                      <td ><div >{index+1}</div></td>
+                      <td>
+                        { 
+                        eachItem.type==="single" ?(eachItem.id === isOpen.jokeId && isOpen.status ?
+                        <div className='tracking-wider max-h-[100px] transition-[max-height] duration-200 ease-in-out'>{eachItem.joke}</div> :
+                        <div className='tracking-wider max-h-[20px]'>{extractFirstWords(eachItem.joke || " ")}.....</div>):
 
-                        <td ><div >{eachItem.category}</div></td>
-                        <td ><div >{eachItem.type}</div></td>
-                      </tr> :
-                      <tr key={eachItem.id} className='border-b-[1px]  border-b-[#33738c] text-[0.975rem] leading-[1.25rem] hover:bg-[#315d6e]'onClick={() => toggleAccordion(eachItem.id)}>
-                        <td ><div >{index+1}</div></td>
-
-                        {eachItem.id === isOpen.jokeId && isOpen.status ?
-                          <td><div className='max-h-[100px] transition-[max-height] duration-200 ease-in-out'>
+                        (
+                          eachItem.id === isOpen.jokeId && isOpen.status ?
+                          <div className='max-h-[100px] transition-[max-height] duration-200 ease-in-out'>
                             <p className='py-2 tracking-wider flex'><span className='font-bold pr-2'>Setup:</span> {eachItem.setup}</p>
                             <p  className='tracking-wider flex'><span className='font-bold pr-2'>Delivery:</span> {eachItem.delivery}</p>
                             </div>
-                            </td> :
+                             : <div className='tracking-wider max-h-[20px]'>{extractFirstWords(eachItem.setup || " ")}.....</div>
+                        )
+                      }
 
+                      </td>
 
-                          <td><div className='tracking-wider max-h-[20px]'>{extractFirstWords(eachItem.setup || " ")}.....</div></td>
-                        }
-
-                        {/* <td ><div>{eachItem.setup}</div></td> */}
-                        <td ><div >{eachItem.category}</div></td>
-                        <td ><div >{eachItem.type}</div></td>
-                      </tr>
+                      <td ><div >{eachItem.category}</div></td>
+                      <td ><div >{eachItem.type}</div></td>
+                    </tr>
+                    )
+                    
 
                   })
                 ) : null
@@ -191,10 +188,11 @@ const Details: React.FC = () => {
 
         <div>
           {
-            totalPages > 0 ? <ul className='flex space-x-3 bg-[#264653] px-3 py-2  mt-8 w-[21%] text-gray-400'>
+            totalPages > 0 ? <ul className='flex space-x-2 bg-[#264653] w-[14%]  px-3 py-2  mt-8  text-gray-400'>
+             
               {Array.from({ length: totalPages }, (_, index) => (
                 <li key={index} onClick={() => changePage(index)} >
-                  <button className={`${currentPage === index + 1 ? "bg-[#315d6e] text-white" : null} text-xl px-2 rounded-md`}  >{index + 1}</button>
+                  <button className={`${currentPage === index + 1 ? "bg-[#315d6e] text-white" : null} text-sm px-2 rounded-md`}  >{index + 1}</button>
                 </li>
               ))}
             </ul> : null

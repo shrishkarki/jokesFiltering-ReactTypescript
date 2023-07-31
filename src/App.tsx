@@ -6,7 +6,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className='bg-[#315d6e] w-full font-[inter,sans-serif]'>
+    <div className='bg-[#315d6e] w-full font-[Inter,sans-serif]'>
       
    
     <Details/>
