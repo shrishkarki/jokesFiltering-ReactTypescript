@@ -16,6 +16,9 @@ const customAxios = axios.create({
 
 export const allDetails=async(para:string)=>{
   let arr:JokesEntity[]=[];
+
+
+  
    const res1=await customAxios.get(`/${para}idRange=1-10&&amount=10`);
    
   
@@ -39,11 +42,15 @@ export const allDetails=async(para:string)=>{
  
   return arr;
    
-  // const res=await customAxios.get(`/Any?idRange=0-9&&amount=10`);
+
+
+}
+
+
+export const getDetails=async(para:string)=>{
+  const res=await customAxios.get(`${para}`);
+  return res.data.jokes;
   
-
-  // return res.data.jokes
-
 }
 
 

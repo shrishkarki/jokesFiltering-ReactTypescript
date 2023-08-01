@@ -165,7 +165,7 @@ const Dropdown: React.FC<DropdownProps> = ({ allJokes, setAllJokes, handleToggle
         </div>
 
 
-
+       
         <div className='border-t-[1px]   border-t-[#46a8cc]'>
 
           <div className='py-4 text-sm space-x-3 flex justify-end '>
@@ -174,10 +174,11 @@ const Dropdown: React.FC<DropdownProps> = ({ allJokes, setAllJokes, handleToggle
           </div>
 
         </div>
+        </div>
 
 
 
-      </div>
+    
 
     </>
   )

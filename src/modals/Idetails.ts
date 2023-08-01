@@ -6,13 +6,13 @@ export interface Idetails {
   export interface JokesEntity {
   category: string;
   type: string;
-  setup?: string | null;
-  delivery?: string | null;
+  setup: string | null;
+  delivery: string | null;
   flags: Flags;
   safe: boolean;
   id: number;
   lang: string;
-  joke?: string | null;
+  joke: string | null ;
 }
 export interface Flags {
   nsfw: boolean;
