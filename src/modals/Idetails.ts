@@ -1,18 +1,18 @@
 export interface Idetails {
   error: boolean;
   amount: number;
-  jokes?: (JokesEntity)[] | null;
+  jokes: (JokesEntity)[] | null;
 }
   export interface JokesEntity {
   category: string;
   type: string;
-  setup?: string | null;
-  delivery?: string | null;
+  setup: string | null;
+  delivery: string | null;
   flags: Flags;
   safe: boolean;
   id: number;
   lang: string;
-  joke?: string | null;
+  joke: string | null ;
 }
 export interface Flags {
   nsfw: boolean;
@@ -35,6 +35,12 @@ export interface Itoggle{
 
 export interface Icategorysearch{
   [categorySearch:string]:string
+}
+
+
+export interface paramsInterface{
+  currentPage:number,
+  apiParams:string
 }
 
 

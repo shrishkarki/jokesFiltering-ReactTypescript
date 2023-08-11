@@ -8,26 +8,32 @@
   z-index: 10;
   height: 100vh;
   cursor: pointer;
+  opacity: 50%;
  
   
 }
-tr th{
+.details th{
     padding: 0.875rem 0.75rem;
     text-align: left;
-    font-size: 0.975rem;
+    font-size: 14px;
     line-height: 1.25rem;
     font-weight: 600;
     cursor: pointer;
 }
 
-tr td {
-    padding: 30px 0.75rem;
+.details tr td {
+  font-size: 14px;
+ 
+    padding: 18px 0.75rem;
    word-wrap: break-word;
    cursor: pointer;
    
 }
+td.jokes{
+ padding-right: 80px !important;
+}
 table tbody :last-child{
-  border: none
+  border: none;
 }
 
 .input-with-icon {
