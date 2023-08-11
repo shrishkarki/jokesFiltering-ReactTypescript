@@ -7,6 +7,8 @@ import {  JokesEntity } from '../modals/Idetails';
 //   allData:Idetails[];
 // }
 
+
+
 const customAxios = axios.create({
   baseURL: 'https://v2.jokeapi.dev/joke', 
 });

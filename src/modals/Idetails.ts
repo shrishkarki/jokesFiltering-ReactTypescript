@@ -1,7 +1,7 @@
 export interface Idetails {
   error: boolean;
   amount: number;
-  jokes?: (JokesEntity)[] | null;
+  jokes: (JokesEntity)[] | null;
 }
   export interface JokesEntity {
   category: string;
@@ -35,6 +35,12 @@ export interface Itoggle{
 
 export interface Icategorysearch{
   [categorySearch:string]:string
+}
+
+
+export interface paramsInterface{
+  currentPage:number,
+  apiParams:string
 }
 
 

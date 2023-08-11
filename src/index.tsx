@@ -4,14 +4,18 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { IndexContextProvider } from './components/ContextApi/IndexContext';
+import { IndexContextProvider } from './FirstPageComponent/ContextApi/IndexContext';
+import { BrowserRouter as Router } from "react-router-dom";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
  <IndexContextProvider>
-    <App />
+  <Router>
+  <App />
+  </Router>
+  
  </IndexContextProvider>
   
  

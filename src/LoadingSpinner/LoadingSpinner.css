@@ -1,0 +1,31 @@
+@keyframes spinner {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    50%{
+        transform: rotate(180deg) scale(0.8);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+  }
+  .spinner-container{
+    display: flex;
+    justify-content: center;
+   
+    align-items:center ;
+
+  }
+  .loading-spinner {
+    width: 30px;
+    height: 30px;
+    border-width: 2px; 
+    border-style: solid;
+    border-color: rgb(255, 255, 255) rgb(255, 255, 255) transparent;
+    
+    /* margin: 0 auto; */
+   
+    border-radius: 50%;
+   
+    animation: 0.75s linear 0s infinite normal both running spinner;
+  }

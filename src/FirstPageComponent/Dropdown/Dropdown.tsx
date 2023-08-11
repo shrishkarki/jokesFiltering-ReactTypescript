@@ -4,7 +4,7 @@ import { FaSearch } from 'react-icons/fa';
 
 
 import { IoIosArrowDown } from 'react-icons/io';
-import { Icategorysearch, Istate, Itoggle, JokesEntity } from '../../modals/Idetails';
+import { Icategorysearch, Istate, Itoggle, JokesEntity, paramsInterface } from '../../modals/Idetails';
 import { allDetails } from '../../services/details';
 
 
@@ -20,18 +20,18 @@ interface FilterItem {
 
 
 interface DropdownProps {
-  allJokes: Istate;
-  setAllJokes: React.Dispatch<React.SetStateAction<Istate>>;
+
+  setParams: React.Dispatch<React.SetStateAction<paramsInterface>>;
   handleToggle: () => void;
 }
 
 const filterList: FilterItem[] = [
-  { name: "Category", items: ['Miscellaneous', 'programming', 'dark', 'poon', 'Spooky', 'Christmas'] },
+  { name: "Category", items: ['Miscellaneous', 'programming', 'dark', 'pun', 'Spooky', 'Christmas'] },
   { name: "Flags", items: ["nsfw", "religious", "political", "racist", "sexist", "explicit"] },
-  { name: "Type", items: ["Single", "twopart"] },
+  { name: "Type", items: ["single", "twopart"] },
 ];
 
-const Dropdown: React.FC<DropdownProps> = ({ allJokes, setAllJokes, handleToggle }) => {
+const Dropdown: React.FC <DropdownProps>= ({setParams,handleToggle}) => {
 
   const [showListItem, setShowListItem] = useState<Itoggle>({});
   const [checkedItems, setCheckedItems] = useState<checkboxItems>({});
@@ -82,10 +82,40 @@ const Dropdown: React.FC<DropdownProps> = ({ allJokes, setAllJokes, handleToggle
     const category = filtered[0].items.join(',');
     const Flags = filtered[1].items.join(',');
     const type = filtered[2].items.join(',');
-    handleToggle();    
-    const res: JokesEntity[] = await allDetails(`${category}?blacklistFlags=${Flags}&type=${type}&`);
-    console.log(res)
-    setAllJokes({ ...allJokes, jokes: res, loading: false });
+
+console.log(Flags,type)
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    Flags&&urlSearchParams.append('blacklistFlags',Flags);
+    type&&urlSearchParams.append('type',type);
+    urlSearchParams.append('amount','10');
+    const paramsString =urlSearchParams.toString();
+    const filterApiUrl = `/${category? category:"Any"}?` + paramsString;
+
+   
+ 
+
+
+
+   
+
+    // const filterApi=`${category&&Flags&&type ?`/${category}?blacklistFlags=${Flags}&type=${type}&amount=10`:
+    //                  category&&Flags?`/${category}?blacklistFlags=${Flags}&amount=10`:
+    //                  Flags&&type?`/Any?blacklistFlags=${Flags}&type=${type}&amount=10`:
+    //                  category&&type?`/${category}?type=${type}&amount=10`:
+    //                  category?`/${category}?amount=10`:
+    //                  Flags?`/Any?blacklistFlags=${Flags}&amount=10`:
+    //                  type?`/Any?type=${type}&amount=10`:
+    //                  "/Any?amount=10"};`;
+
+    //                  console.log(filterApi)
+                     handleToggle();
+
+   setParams({
+    currentPage:1,
+    apiParams:filterApiUrl  })
+
+   
+   
   }
 
 
