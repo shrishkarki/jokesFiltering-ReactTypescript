@@ -4,7 +4,7 @@ import { Istate, JokesEntity } from '../../modals/Idetails';
 import { allDetails } from '../../services/details';
 import { FaSearch } from 'react-icons/fa';
 
-import { LuListPlus } from 'react-icons/lu';
+// import { LuListPlus } from 'react-icons/lu';
 import Dropdown from '../Dropdown/Dropdown';
 
 
